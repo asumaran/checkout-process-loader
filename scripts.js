@@ -6,6 +6,11 @@ $(function () {
 
         if (response.status) {
           log += JSON.stringify(response);
+
+          if (response.status === 'step_3') {
+            log += ' - Checkout process finished';
+            clearInterval(intervalID);
+          }
         } else {
           log += 'Checkout process not initiated';
         }
