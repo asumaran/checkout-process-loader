@@ -1,26 +1,23 @@
 $(function () {
-  const intervalID = setInterval(function () {
-    $.get('/controller.php?action=get_status')
-      .done(function (response) {
-        let log = (new Date()).toLocaleTimeString() + ' - ';
+  let intervalID;
 
-        if (response.status) {
-          log += JSON.stringify(response);
-
+  function startCheckoutProcess() {
+    intervalID = setInterval(function () {
+      $.get('/controller.php?action=get_status')
+        .done(function (response) {
+          let log = (new Date()).toLocaleTimeString() + ' - ' + JSON.stringify(response);
           if (response.status === 'step_3') {
             log += ' - Checkout process finished';
             clearInterval(intervalID);
           }
-        } else {
-          log += 'Checkout process not initiated';
-        }
-
-        $('.response').html(log);
-      });
-  }, 1000);
+          $('.response').html(log);
+        });
+    }, 1000);
+  }
 
   $('.start').on('click', function () {
     $.get('/trigger.php');
+    startCheckoutProcess();
   });
 
   $('.stop').on('click', function () {

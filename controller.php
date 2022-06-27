@@ -10,7 +10,8 @@ switch ($_GET['action']) {
     break;
   case 'reset_status':
     // TODO: This is not enough. We need to stop the runner somehow.
-    $provider->reset_status();
+    $status = $provider->reset_status();
+    $response = ["status" => $status];
     break;
 
   default:

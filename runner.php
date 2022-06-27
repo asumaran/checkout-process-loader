@@ -11,7 +11,7 @@ class CheckoutTaskRunner {
 
   function init () {
     Loop::run(function () {
-      $this->save_status('No status');
+      $this->save_status('step_0');
 
       $status = yield $this->first_step();
       $this->save_status($status);
