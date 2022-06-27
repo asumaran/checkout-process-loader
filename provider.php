@@ -6,4 +6,9 @@ class Provider {
     $last_status = tailCustom('./log.txt');
     return $last_status;
   }
+
+  public function reset_status() {
+    file_put_contents('log.txt', '');
+    return '';
+  }
 }

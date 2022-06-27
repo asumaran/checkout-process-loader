@@ -13,6 +13,8 @@
     <button class="start">Start checkout process</button>
     &nbsp;
     <button class="stop">Stop status requests</button>
+    &nbsp;
+    <button class="reset">Reset status</button>
   </p>
   <p>
     <span>Status:</span>

@@ -1,8 +1,7 @@
 $(function () {
   const intervalID = setInterval(function () {
-    $.get('/status.php')
+    $.get('/controller.php?action=get_status')
       .done(function (response) {
-        console.log('response –>',response);
         let log = (new Date()).toLocaleTimeString() + ' - ';
 
         if (response.status) {
@@ -21,5 +20,9 @@ $(function () {
 
   $('.stop').on('click', function () {
     clearInterval(intervalID);
+  });
+
+  $('.reset').on('click', function () {
+    $.get('/controller.php?action=reset_status');
   });
 });

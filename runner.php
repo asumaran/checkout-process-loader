@@ -31,7 +31,7 @@ class CheckoutTaskRunner {
   function first_step() {
     $deferred = new Deferred();
 
-    Loop::delay(5 * 1000, function () use ($deferred) {
+    Loop::delay(3 * 1000, function () use ($deferred) {
       $deferred->resolve("step_1");
     });
 
@@ -41,7 +41,7 @@ class CheckoutTaskRunner {
   function second_step() {
     $deferred = new Deferred();
 
-    Loop::delay(5 * 1000, function () use ($deferred) {
+    Loop::delay(3 * 1000, function () use ($deferred) {
         $deferred->resolve("step_2");
     });
 
@@ -51,7 +51,7 @@ class CheckoutTaskRunner {
   function third_step() {
     $deferred = new Deferred();
 
-    Loop::delay(5 * 1000, function () use ($deferred) {
+    Loop::delay(3 * 1000, function () use ($deferred) {
         $deferred->resolve("step_3");
     });
 
